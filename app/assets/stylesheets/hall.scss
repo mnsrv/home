@@ -1,0 +1,83 @@
+// Place all the styles related to the Hall controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$link: #0064c1;
+$visited: #80b2e0;
+$hover: #3000c1;
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Helvetica Neue,Arial,sans-serif;
+  background: white;
+  color: black;
+  font-size: 1.25rem;
+  padding: 1em;
+  margin: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+footer {
+  nav {
+    margin-bottom: 0;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1.25em;
+  line-height: 1.2;
+}
+a {
+  text-decoration: none;
+  color: $link;
+  transition: color 300ms ease-out, box-shadow 300ms ease-out;
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(0, 100, 193, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
+  &:visited {
+    color: $visited;
+  }
+  &:hover,
+  &:active {
+    outline-width:0;
+  }
+  &:hover {
+    box-shadow: inset 0px -1px $hover;
+    color: $hover;
+    transition: color 0s, box-shadow 0s;
+  }
+}
+p {
+  margin: 1em 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+header {
+  margin-bottom: 3em;
+  h1 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+nav {
+  margin: 1em 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: .25em;
+  }
+}
