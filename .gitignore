@@ -7,6 +7,9 @@
 # Idea
 .idea/
 
+# Keep secrets
+/config/secrets.yml
+
 # Ignore bundler config.
 /.bundle
 
