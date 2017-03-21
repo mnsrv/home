@@ -1,11 +1,13 @@
-<p>Добро пожаловать домой, Александр</p>
+<% if current_user %><p>Добро пожаловать домой, Александр</p><% end %>
 
 <div>
   <% @projects.each do |project| %>
       <div>
         <a href="<%= project.link %>" target="_blank"><%= project.title %></a>
-        <%= link_to 'Edit', edit_project_path(project) %>
-        <%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if current_user %>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
   <% end %>
 </div>

@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: $link;
-  transition: color 300ms ease-out, box-shadow 300ms ease-out;
+  transition: 300ms ease-out;
   background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(0, 100, 193, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
   &:visited {
     color: $visited;
@@ -47,7 +47,7 @@ a {
   &:hover {
     box-shadow: inset 0px -1px $hover;
     color: $hover;
-    transition: color 0s, box-shadow 0s;
+    transition: 0s;
   }
 }
 p {
@@ -79,5 +79,29 @@ nav {
     display: inline-block;
     margin-right: 1em;
     margin-bottom: .25em;
+  }
+}
+.header {
+  &__line {
+    display: flex;
+  }
+  &__link {
+    background: none;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  &__logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 1em;
+    display: block;
+  }
+}
+.link-auth {
+  opacity: 0.1;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease;
   }
 }

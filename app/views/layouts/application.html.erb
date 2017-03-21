@@ -10,12 +10,19 @@
   <body>
     <main>
       <header>
-        <h1><%= @title %></h1>
-        <p><% if @subtitle %><%= @subtitle %><% else %>&nbsp;<% end %></p>
+        <div class="header__line">
+          <%= link_to_unless_current image_tag("sasha.png", :class => "header__logo"), root_path, :class => 'header__link' %>
+          <%=  %>
+          <div>
+            <h1><%== @title %></h1>
+            <p><% if @subtitle %><%== @subtitle %><% else %>&nbsp;<% end %></p>
+          </div>
+        </div>
         <nav>
           <ul>
-            <li><%= link_to_unless_current 'главная', root_path %></li>
-            <li><%= link_to_unless_current 'новый проект', new_project_path %></li>
+            <% if current_user %>
+              <li><%= link_to_unless_current 'новый проект', new_project_path %></li>
+            <% end %>
           </ul>
         </nav>
       </header>
@@ -28,6 +35,13 @@
         <ul>
           <li><a href="http://ghost.mansurov.me/" target="_blank">блог</a></li>
           <li><a href="https://github.com/mnsrv" target="_blank">гитхаб</a></li>
+          <li>
+            <% if current_user %>
+                <%= link_to 'выход', outside_path %>
+            <% else %>
+                <%= link_to_unless_current 'вход', inside_path, :class => 'link-auth' %>
+            <% end %>
+          </li>
         </ul>
       </nav>
     </footer>

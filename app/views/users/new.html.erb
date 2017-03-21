@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :email, 'Электронная почта:' %><br />
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :password, 'Пароль:' %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, 'Ещё раз:' %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p><%= f.submit 'Подать заявку' %></p>
+<% end %>

@@ -1,7 +1,4 @@
 class ProjectsController < ApplicationController
-
-  http_basic_authenticate_with name: 'dhh', password: 'secret'
-
   def new
     @project = Project.new
     @title = 'Новый проект'
