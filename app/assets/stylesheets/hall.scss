@@ -1,16 +1,24 @@
 // Place all the styles related to the Hall controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$link: #0064c1;
-$visited: #80b2e0;
-$hover: #3000c1;
+$background: white;
+$color: black;
+$link: #0066C1;
+$visited: #0D82EB;
+$hover: #0800CA;
+
+$background_dark:#111;
+$color_dark: white;
+$link_dark: #5300C7;
+$visited_dark: #6C10ED;
+$hover_dark: #BB00C2;
 * {
   box-sizing: border-box;
 }
-body {
+.body {
   font-family: Helvetica Neue,Arial,sans-serif;
-  background: white;
-  color: black;
+  background: $background;
+  color: $color;
   font-size: 1.25rem;
   padding: 1em;
   margin: 0;
@@ -19,6 +27,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: background 300ms ease, color 300ms ease;
+  &_dark {
+    background: $background_dark;
+    color: $color_dark;
+  }
 }
 main {
   flex: 1;
@@ -36,9 +49,17 @@ a {
   text-decoration: none;
   color: $link;
   transition: 300ms ease-out;
-  background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(0, 100, 193, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(0, 102, 193, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
+  transition: background 300ms ease, color 300ms ease;
+  .body_dark & {
+    color: $link_dark;
+    background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(83, 0, 199, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
+  }
   &:visited {
     color: $visited;
+    .body_dark & {
+      color: $visited_dark;
+    }
   }
   &:hover,
   &:active {
@@ -48,6 +69,10 @@ a {
     box-shadow: inset 0px -1px $hover;
     color: $hover;
     transition: 0s;
+    .body_dark & {
+      box-shadow: inset 0px -1px $hover_dark;
+      color: $hover_dark;
+    }
   }
 }
 p {
@@ -86,9 +111,9 @@ nav {
     display: flex;
   }
   &__link {
-    background: none;
+    background: none !important;
     &:hover {
-      box-shadow: none;
+      box-shadow: none !important;
     }
   }
   &__logo {
@@ -96,6 +121,7 @@ nav {
     height: 80px;
     margin-right: 1em;
     display: block;
+    flex-shrink: 0;
   }
 }
 .link-auth {
