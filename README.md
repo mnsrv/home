@@ -1,5 +1,5 @@
 # Home
 
-run local server – `bin/rails server`
+run local server with public tunnel – `bin/rails s --binding=0.0.0.0`
 
 deploy to prod – `cap production deploy`
