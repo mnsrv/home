@@ -24,22 +24,24 @@ $hover_dark: #BB00C2;
   margin: 0;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   min-height: 100vh;
-  transition: background 300ms ease, color 300ms ease;
+  -webkit-transition: background 500ms ease, color 500ms ease;
+  transition: background 500ms ease, color 500ms ease;
   &_dark {
     background: $background_dark;
     color: $color_dark;
   }
+  @media (max-width: 414px) {
+    min-height: 0;
+  }
 }
 main {
   flex: 1;
-}
-footer {
-  nav {
-    margin-bottom: 0;
-  }
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1.25em;
@@ -48,8 +50,8 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: $link;
-  transition: 300ms ease-out;
   background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect x="0" y="0.5" width="1" height="0.5" fill="rgba(0, 102, 193, 0.35)"/%3E%3C/svg%3E') left bottom repeat-x;
+  -webkit-transition: background 300ms ease, color 300ms ease;
   transition: background 300ms ease, color 300ms ease;
   .body_dark & {
     color: $link_dark;
@@ -68,6 +70,7 @@ a {
   &:hover {
     box-shadow: inset 0px -1px $hover;
     color: $hover;
+    -webkit-transition: 0s;
     transition: 0s;
     .body_dark & {
       box-shadow: inset 0px -1px $hover_dark;
@@ -86,6 +89,9 @@ p {
 }
 header {
   margin-bottom: 3em;
+  nav:first-child {
+    margin-top: 0;
+  }
   h1 {
     margin: 0;
   }
@@ -108,12 +114,17 @@ nav {
 }
 .header {
   &__line {
+    display: -webkit-box;
     display: flex;
   }
   &__link {
     background: none !important;
+    
     &:hover {
       box-shadow: none !important;
+    }
+    @media (max-width: 414px) {
+      display: none;
     }
   }
   &__logo {
@@ -121,13 +132,31 @@ nav {
     height: 80px;
     margin-right: 1em;
     display: block;
+    background-image: url(sasha.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     flex-shrink: 0;
+    @media (max-width: 414px) {
+      display: none;
+    }
+  }
+}
+#daynnite {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.home {
+  background: none !important;
+  &:hover {
+    box-shadow: none !important;
   }
 }
 .link-auth {
   opacity: 0.1;
   &:hover {
     opacity: 1;
+    -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
   }
 }

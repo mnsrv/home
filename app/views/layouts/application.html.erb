@@ -10,8 +10,23 @@
   <body class="body<% if cookies['home_theme'] == 'dark' %> body_dark<% end %>">
     <main>
       <header>
+        <nav>
+          <ul>
+            <li><%= link_to_unless_current '🏡', root_path, :class => 'home' do %>🏠<% end %></li>
+            <li><div id="daynnite"><% if cookies['home_theme'] == 'dark' %>🌕<% else %>🌑<% end %></div></li>
+            <li><a href="http://ghost.mansurov.me/" target="_blank">блог</a></li>
+            <li><a href="https://github.com/mnsrv" target="_blank">гитхаб</a></li>
+            <li>
+              <% if current_user %>
+                  <%= link_to 'выход', outside_path %>
+              <% else %>
+                  <%= link_to_unless_current 'вход', inside_path, :class => 'link-auth' %>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
         <div class="header__line">
-          <%= link_to_unless_current image_tag("sasha.png", :class => "header__logo"), root_path, :class => 'header__link' %>
+          <%= link_to_unless_current content_tag(:div, "", :class => "header__logo"), root_path, :class => 'header__link' %>
           <div>
             <h1><%== @title %></h1>
             <p><% if @subtitle %><%== @subtitle %><% else %>&nbsp;<% end %></p>
@@ -29,21 +44,6 @@
         <%= yield %>
       </section>
     </main>
-    <footer>
-      <nav>
-        <ul>
-          <li><a href="http://ghost.mansurov.me/" target="_blank">блог</a></li>
-          <li><a href="https://github.com/mnsrv" target="_blank">гитхаб</a></li>
-          <li>
-            <% if current_user %>
-                <%= link_to 'выход', outside_path %>
-            <% else %>
-                <%= link_to_unless_current 'вход', inside_path, :class => 'link-auth' %>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
-    </footer>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
