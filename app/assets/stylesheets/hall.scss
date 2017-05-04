@@ -132,9 +132,6 @@ nav {
     height: 80px;
     margin-right: 1em;
     display: block;
-    background-image: url(sasha.png);
-    background-size: cover;
-    background-repeat: no-repeat;
     flex-shrink: 0;
     @media (max-width: 414px) {
       display: none;
