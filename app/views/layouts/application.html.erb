@@ -26,7 +26,7 @@
           </ul>
         </nav>
         <div class="header__line">
-          <%= link_to_unless_current content_tag(:div, "", :class => "header__logo"), root_path, :class => 'header__link' %>
+          <%= link_to_unless_current image_tag("sasha.png", :class => "header__logo"), root_path, :class => 'header__link' %>
           <div>
             <h1><%== @title %></h1>
             <p><% if @subtitle %><%== @subtitle %><% else %>&nbsp;<% end %></p>
