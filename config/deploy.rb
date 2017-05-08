@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.8.0"
+lock "3.8.1"
 
 # Change these
 server '188.226.213.93', port: 22, roles: [:web, :app, :db], primary: true
