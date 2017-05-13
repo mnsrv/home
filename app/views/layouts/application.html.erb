@@ -46,10 +46,12 @@
     </main>
     <script type="text/javascript" src="http://ghost.mansurov.me/shared/ghost-url.min.js"></script>
     <script type="text/javascript">
-      ghost.init({
-        clientId: "ghost-frontend",
-        clientSecret: "84ff9a7bf643"
-      });
+      if (typeof ghost !== 'undefined') {
+        ghost.init({
+          clientId: "ghost-frontend",
+          clientSecret: "84ff9a7bf643"
+        });
+      }
     </script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
